@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+  <title>ETES - Confirmation</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">  
+  <link rel="stylesheet" href="/static/css/styleConfirm.css">
+  
+</head>
+
+<!-- Nav Bar -->
+<body>
+  <nav>
+  <div class="container">
+    <ul class="navbar-left">
+      <li><a href="/">Home</a></li>
+      <li><a href="/sell">Sell</a></li>
+      <li><a href="status.html">Order Status</a></li>
+      <li><a href="/about">About</a></li>
+    </ul> <!--end navbar-left -->
+
+    <ul class="navbar-right">
+   		<li>Welcome {{username}}</li>
+      <li><a href="login.html" id="login" class='active-page'>Login</a></li>
+      <li><a href="#" id="cart"><i class="fa fa-shopping-cart"></i> Cart <span class="badge">3</span></a></li>
+    </ul> <!--end navbar-right -->
+  </div> <!--end container -->
+</nav>
+
+<!-- Shopping Cart -->
+<div class="container">
+  <div class="shopping-cart">
+    <div class="shopping-cart-header">
+      <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+      <div class="shopping-cart-total">
+        <span class="lighter-text">Total:</span>
+        <span class="main-color-text">$2,229.97</span>
+      </div>
+    </div> <!--end shopping-cart-header -->
+
+    <ul class="shopping-cart-items">
+      <li class="clearfix">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
+        <span class="item-name">Sony DSC-RX100M III</span>
+        <span class="item-price">$849.99</span>
+        <span class="item-quantity">Quantity: 01</span>
+      </li>
+
+      <li class="clearfix">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />
+        <span class="item-name">KS Automatic Mechanic...</span>
+        <span class="item-price">$1,249.99</span>
+        <span class="item-quantity">Quantity: 01</span>
+      </li>
+
+      <li class="clearfix">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg" alt="item1" />
+        <span class="item-name">Kindle, 6" Glare-Free To...</span>
+        <span class="item-price">$129.99</span>
+        <span class="item-quantity">Quantity: 01</span>
+      </li>
+    </ul>
+
+    <a href="confirmation.html" class="button">Checkout</a>
+  </div> <!--end shopping-cart -->
+</div> <!--end container -->
+
+
+
+<!-- Confirmation Page -->
+
+
+<body>
+<div id="wrap">
+	<div id="grid">
+		<div class="column column1">
+		
+		<div class="step" id="step1">
+			<div class="number">
+				
+			</div>
+			<div class="title">
+				<h1>Billing Information</h1>
+			</div>
+		</div>
+		<div class="content" id="address">
+			<form class="go-right">
+				<div>
+				<input type="name" name="first_name" value="" id="first_name" placeholder="First Name" data-trigger="change" data-validation-minlength="1" data-type="name" data-required="true" data-error-message="Enter Your First Name"/>
+        </div>
+        
+				<div>
+				<input type="name" name="last_name" value="" id="last_name" placeholder="Last Name" data-trigger="change" data-validation-minlength="1" data-type="name" data-required="true" data-error-message="Enter Your Last Name"/>
+				</div>
+				<div>
+				<input type="phone" name="telephone" value="" id="telephone" placeholder="Phone(123)-456-7890" data-trigger="change" data-validation-minlength="1" data-type="number" data-required="true" data-error-message="Enter Your Telephone Number"/>
+				</div>
+					
+				<div>
+				<input type="text" name="address" value="" id="address" placeholder="Address" data-trigger="change" data-validation-minlength="1" data-type="text" data-required="true" data-error-message="Enter Your Billing Address"/>
+				</div>
+				<div>
+				<input type="text" name="city" value="" id="city" placeholder="City" data-trigger="change" data-validation-minlength="1" data-type="text" data-required="true" data-error-message="Enter Your Billing City"/>
+				</div>
+				<div>
+				<div class="state_options">
+        			<div class="select">
+                 		<select id="state">
+                  	 		<option value = "1">States</option>
+                   			<option value = "2">Alaska</option>
+                   			<option value = "3">Arkansas</option>
+                   			<option value = "4">Etc.</option>
+                 		</select>
+                 	</div>
+          		</div>
+				</div>
+				<div>
+				<input type="text" name="zip" value="" id="zip" placeholder="Zip Code" data-trigger="change" data-validation-minlength="1" data-type="text" data-required="true" data-error-message="Enter Your Billing Zip Code"/>
+				</div>
+				<div>
+				<div class="country_options">
+        			<div class="select">
+                 		<select id="country">
+                  	 		<option value = "1">United States</option>
+                   			<option value = "2">United Kingdom</option>
+                   			<option value = "3">Uganda</option>
+                   			<option value = "4">Etc.</option>
+                 		</select>
+                 	</div>
+          		</div>
+				</div>
+				<div>
+				<input type="checkbox"/>
+				<label class="same" for="same_as_shipping">Same As Shipping Address</label><span></span>
+				</div>
+			</form>
+			
+		</div>
+	</div>
+	<div class="column column2">
+		<div class="step" id="step2">
+			<div class="number">
+			
+			</div>
+			<div class="title">
+				<h1>Shipping Information</h1>
+			</div>
+			<div class="modify">
+				<i class="fa fa-plus-circle"></i>
+			</div>
+		</div>
+		<div class="content" id="shipping">
+			<form action="" method="" name="">
+				<div>
+					<input type="radio" id="shipping_1" value="1"/><label for="shipping_1"> Standard Shipping <span class="price">$5.00</span></label>
+				</div>
+			</form>
+			
+		</div>
+		<div class="step" id="step3">
+			<div class="number">
+				
+			</div>
+			<div class="title">
+				<h1>Payment Information</h1>
+			</div>
+			<div class="modify">
+				<i class="fa fa-plus-circle"></i>
+			</div>
+		</div>
+		<div class="content" id="payment">
+			<div class="left">
+			<form class="go-right">
+				<div>
+				<input type="text" name="card_number" value="" id="card_number" placeholder="xxxx-xxxx-xxxx-xxxx" data-trigger="change" data-validation-minlength="1" data-type="name" data-required="true" data-error-message="Enter Your Credit Card Number"/><label for="card_number">Card Number</label>
+				</div>
+				<div>
+				  <div class="expiry">	
+				      <div class="month_select">
+				        <select name="exp_month" value="" id="exp_month" placeholder="" data-trigger="change" data-type="name" data-required="true" data-error-message="Enter Your Credit Card Expiration Date">
+							<option value = "1">Jan</option>
+                   			<option value = "2">Feb</option>
+                   			<option value = "3">Mar</option>
+                   			<option value = "4">Apr</option>
+                   			<option value = "5">May</option>
+                   			<option value = "6">Jun</option>
+                   			<option value = "7">Jul</option>
+                   			<option value = "8">Aug</option>
+                   			<option value = "9">Sep</option>
+                   			<option value = "10">Oct</option>
+                   			<option value = "11">Nov</option>
+                   			<option value = "12">Dec</option>
+                        </select>
+                      </div>
+                      <div class="year_select">
+				        <select name="exp_year" value="" id="exp_year" placeholder="" data-trigger="change" data-type="name" data-required="true" data-error-message="Enter Your Credit Card Expiration Date">
+							<option value = "1">17</option>
+                   			<option value = "2">18</option>
+                   			<option value = "3">19</option>
+                   			<option value = "4">20</option>
+                   			<option value = "5">21</option>
+                   			<option value = "6">22</option>
+							<option value = "7">23</option>
+                        </select>
+            	      </div>
+							<label for="ed">Expiration Date</label>
+            	    </div>
+            	  </div>
+            	<div class="sec_num">
+              <div>
+				        <input type="text" name="ccv" value="" id="ccv" placeholder="123" data-trigger="change" data-validation-minlength="3" data-type="name" data-required="true" data-error-message="Enter Your Card Security Code"/><label for="ccv">Security Code</label>
+				      </div>
+				      </div>
+			      </form>
+			</div>
+			<div class="right">
+				<div class="accepted">
+					<span><img src="http://i.imgur.com/Z5HVIOt.png"></span>
+					<span><img src="http://i.imgur.com/Le0Vvgx.png"></span>
+					<span><img src="http://i.imgur.com/D2eQTim.png"></span>
+					<span><img src="http://i.imgur.com/Pu4e7AT.png"></span>
+					<span><img src="http://i.imgur.com/ewMjaHv.png"></span>
+					<span><img src="http://i.imgur.com/3LmmFFV.png"></span>
+				</div>
+				<div class="secured">
+					<img class="lock" src="http://i.imgur.com/hHuibOR.png">
+					<p class="security info">By entering the Credit Card information, you agree that you are blah blah.</p>
+				</div>
+			</div>
+		
+ 		</div>
+ 	</div>
+ 	<div class="column column3">
+ 		<div class="step" id="step4">
+			<div class="number">
+			</div>
+			<div class="title">
+				<h1>Finalize Order</h1>
+			</div>
+			<div class="modify">
+				<i class="fa fa-plus-circle"></i>
+			</div>
+		</div>
+		<div class="content" id="final_products">
+			<div class="left" id="ordered">
+				<div class="products">
+					<div class="product_image">
+						<img src="images/event1.jpg"/>
+					</div>
+					<div class="product_details">
+						<span class="product_name">The Chainsmokers - Oracle Arena: Oakland, CA</span>
+						<span class="price">$129.99</span>
+					</div>
+				</div>
+				<div class="totals">
+					<span class="subtitle">Subtotal <span id="sub_price">129.99</span></span>
+					<span class="subtitle">Tax <span id="sub_tax">11.37</span></span>
+					<span class="subtitle">Shipping <span id="sub_ship">5.00</span></span>
+				</div>
+				<div class="final">
+					<span class="title">Total <span id="calculated_total">$146.36</span></span>
+				</div>
+			</div>	
+			<div class="right" id="reviewed">
+				<div class="billing">
+					<span class="title">Billing:</span>
+					<div class="address_reviewed">
+						<span class="name">First Last,</span>
+						<span class="address">123 Main Street,</span>
+						<span class="location">SF, CA 12345</span>
+						<span class="phone">(123)-456-7890</span>
+					</div>
+				</div>
+				<div class="shipping">
+					<span class="title">Shipping:</span>
+					<div class="address_reviewed">
+						<span class="same">Same as Billing Address</span>
+						
+					</div>
+				</div>
+				<div class="payment">
+					<span class="title">Payment:</span>
+					<div class="payment_reviewed">
+						<span class="method">Visa</span>
+						<span class="number_hidden">xxxx-xxxx-xxxx-1234</span>
+					</div>
+				</div>
+				<div id="complete">
+				<a class="big_button" id="complete" href="#">Complete Order</a>
+				<span class="sub">By selecting this button you agree to the purchase and subsequent payment for this order.</span> 
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+
+<!-- Confirmation Page -->
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

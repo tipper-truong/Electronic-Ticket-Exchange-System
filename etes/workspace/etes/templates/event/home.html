@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% block title %}ETES - Home{% endblock %}
+
+
+{% block content %}
+
+<script type="text/javascript">
+$(document).ready(function(){
+  activateTab(document.location.hash.slice(1));
+  
+});
+
+function activateTab(tab){
+  $('.tabs a[href="#' + tab + '"]').tab('show');
+};
+</script>
+
+
+<!-- Start Tabs -->
+<section class="wrapper">
+  
+  <ul style="margin-bottom:0;" class="tabs">
+    <li class="active" ><a href="#events">Upcoming Events</a></li>
+    <li><a href="#mylistings">My Listings</a></li>
+    <li><a href="#bought">Bought Tickets</a></li>
+  </ul>
+  
+  <ul class="tab__content">
+
+  <!-- Upcoming Events -->
+  <li class="active">
+    <div class="content__wrapper">
+      <ul class=my__list>
+        <!-- Display all events -->
+        {% for ev in upcoming %}
+        {% if ev.quantity > 0 %} {# Hide events that are sold out #}
+        <li class = event>
+          <table>
+            <tr>
+              <td class="img"><img class="event-img" img src="{{ ev.imgpath }}"/></td>
+              <td>
+                <table class="listing">
+                  <tr>
+                    <td class="column-1"><span class="event-name">{{ ev.name }}</span><td>
+                  </tr>
+                  <tr>
+                    <td class="column-1"><span class="event-date">{{ ev.date }}</span></td>
+                    <td class="column-2"><span class="event-price">${{ ev.price }}</span></td>
+                  </tr>
+                  <tr>
+                    <td class="column-1"><span class="event-seller">Seller: {{ ev.user.username }}</span></td>
+                    <td class="column-2"><span class="event-price">{{ ev.quantity }} left</span></td>
+                  </tr>
+                  <tr>
+                    <td class="column-1" />
+                    <td class="column-2">
+                      <form action="{{ url_for('confirmation', event_id=ev.event_id) }}" method="GET">
+                        <button type="submit" class="buy-button">Buy!</button>
+                      </form>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </li>
+
+  <!-- My Listings -->
+  <li>
+    <div class="content__wrapper">
+      <ul class=my__list>
+        <!-- Display the events the user is selling -->
+        {% for ev in myevents %}
+        {% if session['username'] == ev.user.username %}
+        <li class = event>
+          <table>
+            <tr>
+              <td class="img"><a href=""><img class="event-img" img src="{{ ev.imgpath }}"/></a></td>
+              <td>
+                <table class="listing">
+                    <td class="column-1"><span class="event-name">{{ ev.name }}</span><td>
+                  </tr>
+                  <tr>
+                    <td class="column-1"><span class="event-date">{{ ev.date }}</span></td>
+                    <td class="column-2"><span class="event-price">${{ ev.price }}</span></td>
+                  </tr>
+                  <tr>
+                    <td class="column-1"><span class="event-seller">Seller: {{ ev.user.username }}</span></td>
+                    <td class="column-2"><span class="event-price">{{ ev.quantity }} left</span></td>
+                  </tr>
+                  <tr>
+                      <td class="column-1"><span><a href = "{{ url_for('edit', event_id=ev.event_id)}}">Edit</a> |  <a href = "{{ url_for('delete', event_id=ev.event_id)}}">Delete</a></span></td>
+                  <tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </li>
+  
+  <!-- Start Bought Tickets
+  
+  for tickets in Ticket.query.all():
+                if(tickets.buyer_id == usr.id):
+                    print (str(tickets.buyer_id) + str(tickets.event.name))-->
+  <li>
+    <div class="content__wrapper">
+      <ul class=my__list>
+        {% for ticket in tickets %}
+        {% if ticket.buyer_id == user.id %}
+        <li class = event>
+          <table>
+            <tr>
+              <td class="img"><a href=""><img class="event-img" img src="{{ ticket.event.imgpath }}"/></a></td>
+              <td>
+                <table class="listing">
+                  <tr>
+                    <td class="column-1"><span class="event-name">{{ ticket.event.name }}</span><td>
+                  </tr>
+                  <tr>
+                    <td class="column-1"><span class="event-date">{{ ticket.event.date }}</span></td>
+                  </tr>
+                  <tr>
+                    <td class="column-1"><span class="event-seller">Owner: {{ user.username }}</span></td>
+                  </tr>
+                  <tr>
+                    <td class="column-1"><br></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </div>
+  </li>
+  <!-- End Bought Tickets -->
+  </ul>
+</section>
+<!-- End Tabs -->
+
+{% endblock %}

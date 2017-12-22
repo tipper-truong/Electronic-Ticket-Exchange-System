@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}ETES - Sell{% endblock %}
+
+
+{% block content %}
+
+<div class="container"> <!-- start container -->
+  
+    <ul class="sell-wrapper">
+       {% from "_formhelpers.html" import render_field %}
+    <form method="POST" action="{{ url_for('edit', event_id=event.event_id)}}" enctype="multipart/form-data" role="form">
+
+      {{ form.hidden_tag() }}
+      {{ render_field(form.imgpath, class='form-control') }}
+      {{ render_field(form.name, class='form-control') }}
+      {{ render_field(form.venue, class='form-control') }}
+      {{ render_field(form.location, class='form-control') }}
+      {{ render_field(form.date, class='form-control') }}
+      {{ render_field(form.price, class='form-control') }}
+      {{ render_field(form.quantity, class='form-control') }}
+      {{ render_field(form.starttime, class='form-control') }}
+      {{ render_field(form.endtime, class='form-control') }}
+      {{ render_field(form.genre, class='form-control') }}
+      
+      <button type="submit" name = 'btn' class="btn btn-success">Update</button>
+     
+    </form>
+    </ul>
+  
+</div> <!--end container -->
+
+{% endblock %}

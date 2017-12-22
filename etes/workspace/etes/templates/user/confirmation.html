@@ -1,0 +1,308 @@
+{# Extends #}
+{% extends "base.html" %}
+{% block title %}ETES - Order Confirmation{% endblock %}
+
+{# Imports #}
+{% from "_formhelpers.html" import render_field %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/styleConfirm.css">
+
+<div id="wrap">
+<div id="grid">
+
+<div class="column column1">
+  <div class="step" id="step1">
+    <div class="number">1</div>
+    <div class="title-main">
+      <h1>Billing Information</h1>
+    </div>
+  </div>
+  <div class="content" id="address">
+    <!-- Start Payment Form -->
+   <form id = 'event-payment' method="POST" action="{{ url_for('confirmation', event_id=event.event_id)}}" enctype="multipart/form-data" role="form" class="go-right">
+      <div>
+        <input type="name" name="first_name" value="{{ user.firstname }}" id="first_name" placeholder="First Name" data-trigger="change" data-validation-minlength="1" data-type="name" data-required="true" data-error-message="Enter Your First Name"/>
+      </div>
+      
+      <div>
+        <input type="name" name="last_name" value="{{ user.lastname }}" id="last_name" placeholder="Last Name" data-trigger="change" data-validation-minlength="1" data-type="name" data-required="true" data-error-message="Enter Your Last Name"/>
+      </div>
+      
+      <div>
+        <input type="phone" name="telephone" value="" id="telephone" placeholder="Phone(123)-456-7890" data-trigger="change" data-validation-minlength="1" data-type="number" data-required="true" data-error-message="Enter Your Telephone Number"/>
+      </div>
+      
+      <div>
+        <input type="text" name="address" value="{{ user.address.street }}" id="address" placeholder="Address" data-trigger="change" data-validation-minlength="1" data-type="text" data-required="true" data-error-message="Enter Your Billing Address"/>
+      </div>
+      
+      <div>
+        <input type="text" name="city" value="{{ user.address.city }}" id="city" placeholder="City" data-trigger="change" data-validation-minlength="1" data-type="text" data-required="true" data-error-message="Enter Your Billing City"/>
+      </div>
+      
+      <div>
+        <div class="state_options">
+          <div class="select">
+            <select id="state" name = 'state'>
+              <option value="0">States</option>
+              <option value="AK">AK</option>
+              <option value="AL">AL</option>
+              <option value="AZ">AZ</option>
+              <option value="AR">AR</option>
+              <option value="CA">CA</option>
+              <option value="CO">CO</option>
+              <option value="CT">CT</option>
+              <option value="DE">DE</option>
+              <option value="FL">FL</option>
+              <option value="GA">GA</option>
+              <option value="HI">HI</option>
+              <option value="ID">ID</option>
+              <option value="IL">IL</option>
+              <option value="IN">IN</option>
+              <option value="IA">IA</option>
+              <option value="KS">KS</option>
+              <option value="KY">KY</option>
+              <option value="LA">LA</option>
+              <option value="ME">ME</option>
+              <option value="MD">MD</option>
+              <option value="MA">MA</option>
+              <option value="MI">MI</option>
+              <option value="MN">MN</option>
+              <option value="MS">MS</option>
+              <option value="MO">MO</option>
+              <option value="MT">MT</option>
+              <option value="NE">NE</option>
+              <option value="NV">NV</option>
+              <option value="NH">NH</option>
+              <option value="NJ">NJ</option>
+              <option value="NM">NM</option>
+              <option value="NY">NY</option>
+              <option value="NC">NC</option>
+              <option value="ND">ND</option>
+              <option value="OH">OH</option>
+              <option value="OK">OK</option>
+              <option value="OR">OR</option>
+              <option value="PA">PA</option>
+              <option value="RI">RI</option>
+              <option value="SC">SC</option>
+              <option value="SD">SD</option>
+              <option value="TN">TN</option>
+              <option value="TX">TX</option>
+              <option value="UT">UT</option>
+              <option value="VT">VT</option>
+              <option value="VA">VA</option>
+              <option value="WA">WA</option>
+              <option value="WV">WV</option>
+              <option value="WI">WI</option>
+              <option value="WY">WY</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <input type="text" name="zip" value="{{ user.address.zipcode }}" id="zip" placeholder="Zip Code" data-trigger="change" data-validation-minlength="1" data-type="text" data-required="true" data-error-message="Enter Your Billing Zip Code"/>
+      </div>
+      
+      <div>
+        <div class="country_options">
+          <div class="select">
+            <select id="country" name="country_list">
+              <option value = "United States">United States</option>
+              <option value = "United Kingdom">United Kingdom</option>
+              <option value = "Uganda">Uganda</option>
+              <option value = "Etc.">Etc.</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <input type="checkbox"/>
+        <label class="same" for="same_as_shipping">Same As Shipping Address</label><span></span>
+      </div>
+
+   
+
+  </div>
+</div>
+
+<div class="column column2">
+  {# 
+  <div class="step" id="step2">
+    <div class="number">2</div>
+    <div class="title-main">
+      <h1>Shipping Information</h1>
+    </div>
+    <div class="modify">
+      
+    </div>
+  </div>
+  <div class="content" id="shipping">
+    <form action="" method="" name="">
+      <div>
+        <input type="radio" id="shipping_1" value="1"/><label for="shipping_1"> Standard Shipping <span class="price">$5.00</span></label>
+      </div>
+    </form>
+  </div>
+  #}
+  <div class="step" id="step2">
+    <div class="number">2</div>
+    <div class="title-main">
+      <h1>Payment Information</h1>
+    </div>
+    <div class="modify">
+ 
+    </div>
+  </div>
+  <div class="content" id="payment">
+    <div class="left">
+        <div>
+          <input type="text" name="card_number" value="" id="card_number" placeholder="xxxx-xxxx-xxxx-xxxx" data-trigger="change" data-validation-minlength="1" data-type="name" data-required="true" data-error-message="Enter Your Credit Card Number"/><label for="card_number">Card Number</label>
+        </div>
+        <div>
+          <div class="expiry">
+            <div class="month_select">
+              <select id = 'exp_month' name="exp_month" data-error-message="Enter Your Credit Card Expiration Date">
+                <option value = "Jan">Jan</option>
+                <option value = "Feb">Feb</option>
+                <option value = "Mar">Mar</option>
+                <option value = "Apr">Apr</option>
+                <option value = "May">May</option>
+                <option value = "Jun">Jun</option>
+                <option value = "Jul">Jul</option>
+                <option value = "Aug">Aug</option>
+                <option value = "Sep">Sep</option>
+                <option value = "Oct">Oct</option>
+                <option value = "Nov">Nov</option>
+                <option value = "Dec">Dec</option>
+              </select>
+            </div>
+            <div class="year_select">
+              <select id = 'exp_year' name="exp_year" data-error-message="Enter Your Credit Card Expiration Date">
+                <option value = "17">17</option>
+                <option value = "18">18</option>
+                <option value = "19">19</option>
+                <option value = "20">20</option>
+                <option value = "21">21</option>
+                <option value = "22">22</option>
+                <option value = "23">23</option>
+              </select>
+            </div>
+            <label for="ed">Expiration Date</label>
+          </div>
+        </div>
+        <div class="sec_num">
+          <div>
+            <input type="text" name="cvv" value="" id="ccv" placeholder="123" data-trigger="change" data-validation-minlength="3" data-type="name" data-required="true" data-error-message="Enter Your Card Security Code"/><label for="ccv">Security Code</label>
+          </div>
+        </div>
+         
+      <div id="complete">
+        <button type="submit" name = 'complete' href="/status/{{event.event_id}}">Complete Order</button>
+        <span class="sub">By ordering, you agree to the purchase and subsequent payment for this order.</span> 
+      </div>
+      </form> <!-- End Payment Form -->
+    </div>
+    <div class="right">
+      <div class="accepted">
+        <span><img src="http://i.imgur.com/Z5HVIOt.png"></span>
+        <span><img src="http://i.imgur.com/Le0Vvgx.png"></span>
+        <span><img src="http://i.imgur.com/D2eQTim.png"></span>
+        <span><img src="http://i.imgur.com/Pu4e7AT.png"></span>
+        <span><img src="http://i.imgur.com/ewMjaHv.png"></span>
+        <span><img src="http://i.imgur.com/3LmmFFV.png"></span>
+      </div>
+      <div class="secured">
+        <img class="lock" src="http://i.imgur.com/hHuibOR.png">
+        <p class="security info">By entering the Credit Card information, you agree that you are blah blah.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="column column3">
+  <div class="step" id="step3">
+    <div class="number">3</div>
+    <div class="title-main">
+      <h1>Event Receipt</h1>
+    </div>
+    <div class="modify">
+    </div>
+  </div>
+
+  <div class="content" id="final_products">
+    <div class="left" id="ordered">
+      <div class="products">
+        <div class="product_image">
+          <img src="{{ event.imgpath }}"/>
+        </div>
+        <div class="product_details">
+          <span class="product_name">{{ event.name }}</span>
+          <span class="product_venue">{{ event.venue }}</span>
+          <span class="product_location">{{ event.location }}</span>
+          <span class="price">${{ event.price }}</span></br>
+          <span class = "address">Seller: {{event.user.username}}</span>
+        </div>
+      </div>
+      <div class="totals">
+        <span class="subtitle">Subtotal <span id="sub_price">{{ event.price }}</span></span>
+        <span class="subtitle">ETES Commission <span id="sub_tax">{{ pricing.commission }}</span></span>
+        <span class="subtitle">Shipping <span id="sub_ship">{{ pricing.shipping }}</span></span>
+      </div>
+      <div class="final">
+        <span class="calculated_total">Total <span id="calculated_total">${{ pricing.total }}</span></span>
+      </div>
+    </div>
+    
+    <div class="right" id="reviewed">
+      <div class="billing">
+        <span class="title">Billing:</span>
+        <div class="address_reviewed">
+          <span class="name">{{ user.firstname }} {{ user.lastname }},</span>
+          <span class="address">{{ user.address.street }},</span>
+          <span class="location">{{ user.address.city }}, {{ user.address.state }} {{ user.address.zipcode }}</span>
+          <span class="phone">(123)-456-7890</span>
+        </div>
+      </div>
+      
+      <div class="shipping">
+        <span class="title">Shipping:</span>
+        <div class="address_reviewed">
+          <span class="same">Same as Billing Address</span>
+        </div>
+      </div>
+      
+      <div class="payment">
+        <span class="title">Payment:</span>
+        <div class="payment_reviewed">
+          <span class="method">Visa</span>
+          <span class="number_hidden">xxxx-xxxx-xxxx-1234</span>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<div>
+<div>
+
+<script>
+function setSelectedIndex(s, valsearch) {
+    // Loop through all the items in drop down list
+    for (i = 0; i< s.options.length; i++) {
+        if (s.options[i].value == valsearch) {
+            // Item is found. Set its property and exit
+            s.options[i].selected = true;
+            break;
+        }
+    }
+    return;
+}
+setSelectedIndex(document.getElementById("state"),"CA");
+</script>
+
+{% endblock %}

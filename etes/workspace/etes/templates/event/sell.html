@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}ETES - Sell{% endblock %}
+
+
+{% block content %}
+
+<div class="container"> <!-- start container -->
+  
+    <ul class="sellpage-wrapper">
+        {% if error %}
+        <div class="error text-danger">{{ error }}</div>
+        {% endif %}
+        {% from "_formhelpers.html" import render_field %}
+    <form method="POST" action="{{ url_for('sell')}}" enctype="multipart/form-data" role="form">
+
+      {{ form.hidden_tag() }}
+      {{ render_field(form.imgpath, class='form-control') }}
+      {{ render_field(form.name, class='form-control', placeholder='Event Name') }}
+      {{ render_field(form.venue, class='form-control', placeholder='Venue Name for e.g. Bill Graham Civic Auditorium') }}
+      {{ render_field(form.location, class='form-control', placeholder='City, State') }}
+      {{ render_field(form.date, class='form-control', placeholder='MM/DD/YYYY') }}
+      {{ render_field(form.price, class='form-control', placeholder='USD') }}
+      {{ render_field(form.quantity, class='form-control', placeholder='# of tickets to sell') }}
+      {{ render_field(form.starttime, class='form-control', placeholder='00:00 am/pm') }}
+      {{ render_field(form.endtime, class='form-control', placeholder='00:00 am/pm') }}
+      {{ render_field(form.genre, class='form-control', placeholder='Event Genre') }}
+      
+      <button type="submit" name = 'btn' class="sellpage-button">Submit</button>
+     
+    </form>
+    </ul>
+  
+</div> <!--end container -->
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}ETES - Login{% endblock %}
+
+{% block navbar %}<!-- Empty navbar -->{% endblock %}
+
+{% block content %}
+
+<!-- Start Login/Register Tabs -->
+<section class="lr">
+
+  <ul style="margin-bottom:0;" class="lr-tabs">
+    <li class="active">Login</li>
+    <li>Register</li>
+  </ul>
+
+  <ul class="lr-content">
+
+    <!-- Login -->
+    <li class="active">
+      <div class="lr-wrapper" class = "row">
+      <div class="col-md-offset-3 col-md-6">
+        <h2 class="text-color">Welcome Back</h2>
+        {% if error %}
+        <div class="error text-danger">{{ error }}</div>
+        {% endif %}
+        {% from "_formhelpers.html" import render_field %}
+        <form method="POST" action="{{ url_for('login')}}" role="form">
+          {{ form.hidden_tag() }}
+          {{ render_field(form.username, class='form-control') }}
+          {{ render_field(form.password, class='form-control') }}
+          <button type="submit" class="btn btn-default"  name = "btn" value = "Login">Login</button>
+        </form>
+      </div>
+    </li>
+
+    <!-- Register -->
+    <li>
+      <div class="lr-wrapper" class = "row">
+        <div class="col-md-offset-3 col-md-6">
+          <reg>
+          <h2 class="text-color">Please enter the following information:</h2>
+            {% from "_formhelpers.html" import render_field %}
+            <form method="POST" action="{{ url_for('login')}}" role="form">
+              {{ regform.hidden_tag() }}
+              {{ render_field(regform.fullname, class='form-control', placeholder='First Name Last Name') }}
+              {{ render_field(regform.username, class='form-control', placeholder='Username') }}
+              {{ render_field(regform.email, class='form-control', placeholder='Email') }}
+              {{ render_field(regform.house_number, class='form-control', placeholder='House Number') }}
+              {{ render_field(regform.street, class='form-control', placeholder='Street') }}
+              {{ render_field(regform.city, class='form-control', placeholder='City') }}
+              {{ render_field(regform.state, class='form-control', placeholder='State') }}
+              {{ render_field(regform.zip_code, class='form-control', placeholder='Zip Code') }}
+              {{ render_field(regform.password, class='form-control', placeholder='Password') }}
+              {{ render_field(regform.confirm, class='form-control', placeholder = 'Repeat Password') }}
+              <button type="submit" class="btn btn-default" name="btn" value="Register">Register</button>
+          </form>
+          </reg>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</section>
+<!-- End Login/Register Tabs -->
+
+{% endblock %}

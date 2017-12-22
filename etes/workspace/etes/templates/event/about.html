@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}ETES - Template{% endblock %}
+
+<!-- Nav Bar -->
+<nav>
+  <div class="container">
+
+    <ul class="navbar-left">
+      <li><a href="/">Home</a></li>
+      <li><a href="/sell">Sell</a></li>
+      <li><a href="/status">Order Status</a></li>
+      <li><a href="/about" class='active-page'>About</a></li>
+    </ul> <!--end navbar-left -->
+
+    <ul class="navbar-right">
+      <li>Welcome, {{session['username']}}</li>
+      <li><a href="{{ url_for('logout') }}" id="logout">Logout</a></li>
+      {# <li><a href="#" id="cart"><i class="fa fa-shopping-cart"></i> Cart <span class="badge">3</span></a></li> #}
+    </ul> <!--end navbar-right -->
+  
+  </div> <!--end container -->
+</nav>
+
+{% block content %}
+
+<div class="wrapper">
+  <div class="header">
+    <h1>About The ETES Team</h1>
+  </div>
+</div>
+
+ <!-- Upcoming Events -->
+    <div class="content__wrapper">
+      <ul class=my__list>
+        <li class = about>
+          <table>
+            <tr>
+              <td>
+                <table class="about-us">
+                  
+                  <tr>
+                    <td class="column-1"><span class="about-pict"><img src="../static/images/Male4.png"></span><td>
+                    <td class="column-2"><span class="about-name">Patrick Solis</span></td>
+                    <td class="column-3"><span class="about-desc"></span></td>
+                  </tr>
+                  
+                  <tr>
+                    <td class="column-1"><span class="about-pict"><img src="../static/images/Female1.png"></span><td>
+                    <td class="column-2"><span class="about-name">Tipper Truong</span></td>
+                    <td class="column-3"><span class="about-desc"></span></td>
+                  </tr>
+
+                  <tr>
+                    <td class="column-1"><span class="about-pict"><img src="../static/images/Male2.png"></span><td>
+                    <td class="column-2"><span class="about-name">Thomas Wilson</span></td>
+                    <td class="column-3"><span class="about-desc"></span></td>
+                  </tr>
+                  
+                  <tr>
+                    <td class="column-1"><span class="about-pict"><img src="../static/images/Male1.png"></span><td>
+                    <td class="column-2"><span class="about-name">Hansen Wu</span></td>
+                    <td class="column-3"><span class="about-desc"></span></td>
+                  </tr>
+                  
+                  <tr>
+                    <td class="column-1"><span class="about-pict"><img src="../static/images/Male3.png"></span><td>
+                    <td class="column-2"><span class="about-name">David Xie</span></td>
+                    <td class="column-3"><span class="about-desc"></span></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </li>
+      </ul>
+    </div>
+
+{% endblock %}
